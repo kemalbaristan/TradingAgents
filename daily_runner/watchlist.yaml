@@ -1,0 +1,57 @@
+# Daily Stock Recommendation Watchlist
+# Add/remove tickers to customize your daily analysis.
+
+# Your stock watchlist - these tickers will be analyzed each morning
+watchlist:
+  - AAPL
+  - MSFT
+  - GOOGL
+  - AMZN
+  - NVDA
+  - TSLA
+  - META
+
+# LLM configuration (overrides default_config)
+llm:
+  provider: "openai"            # openai, anthropic, google, xai, openrouter, ollama
+  deep_think_model: "gpt-5-mini"
+  quick_think_model: "gpt-5-mini"
+  # backend_url: "https://api.openai.com/v1"  # uncomment to override
+
+# Analysis settings
+analysis:
+  max_debate_rounds: 1          # more rounds = deeper analysis but slower
+  max_risk_discuss_rounds: 1
+  selected_analysts:            # which analyst agents to use
+    - market
+    - social
+    - news
+    - fundamentals
+
+# Data vendor routing
+data_vendors:
+  core_stock_apis: "yfinance"
+  technical_indicators: "yfinance"
+  fundamental_data: "yfinance"
+  news_data: "yfinance"
+
+# Report output
+output:
+  reports_dir: "./daily_reports"
+  save_json: true               # save raw JSON results
+  save_text: true               # save formatted text report
+
+# Email notifications (optional - leave smtp_server empty to disable)
+email:
+  enabled: false
+  smtp_server: ""
+  smtp_port: 587
+  username: ""
+  password: ""                  # use app password, not account password
+  from_addr: ""
+  to_addrs: []
+
+# Schedule (used by setup_schedule.py)
+schedule:
+  time: "07:00"                 # 24h format, local time
+  timezone: "US/Eastern"        # pytz timezone name
