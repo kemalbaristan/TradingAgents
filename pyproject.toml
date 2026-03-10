@@ -31,10 +31,13 @@ dependencies = [
     "tqdm>=4.67.1",
     "typing-extensions>=4.14.0",
     "yfinance>=0.2.63",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0.0",
 ]
 
 [project.scripts]
 tradingagents = "cli.main:app"
+daily-recommender = "daily_runner.run:main"
 
 [tool.setuptools.packages.find]
-include = ["tradingagents*", "cli*"]
+include = ["tradingagents*", "cli*", "daily_runner*"]
