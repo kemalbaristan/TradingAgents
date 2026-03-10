@@ -8,13 +8,8 @@ stockstats
 langgraph
 rank-bm25
 setuptools
-backtrader
-parsel
 requests
-tqdm
 pytz
-redis
-chainlit
 rich
 typer
 questionary
